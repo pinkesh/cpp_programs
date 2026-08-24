@@ -1,11 +1,14 @@
+#include <iostream>
+using namespace std;
+
 struct Stack {
     int*  data;   // heap-allocated array
     int   top;    // index of next free slot
     int   cap;    // current capacity new line
 };
 //comment 1
-void  init12  (Stack& s, int capacity){
-   
+void  init2   (Stack& s, int capacity){
+   cout << "hi";
 }
 
 void  push   (Stack& s, int val){
