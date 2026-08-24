@@ -4,7 +4,7 @@ struct Stack {
     int   cap;    // current capacity new line
 };
 //comment 1
-void  init   (Stack& s, int capacity){
+void  init12  (Stack& s, int capacity){
    
 }
 
