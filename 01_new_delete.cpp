@@ -15,7 +15,7 @@ int main() {
     p = nullptr;                   // good practice: avoid a dangling pointer
 
     // --- Array on the heap ---
-    int size = 10;
+    int size = 20;
     int* arr = new int[size];      // size decided at runtime
     for (int i = 0; i < size; ++i) {
         arr[i] = i * i;
