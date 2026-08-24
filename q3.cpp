@@ -7,7 +7,7 @@ struct Stack {
     int   cap;    // current capacity new line
 };
 //comment 1
-void  init2   (Stack& s, int capacity){
+void  init223   (Stack& s, int capacity){
    cout << "hi";
 }
 
