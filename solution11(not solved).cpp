@@ -7,10 +7,7 @@ public:
     int marks[5];
 
 public:
-    Student(int[] y)
-    {
-        marks = y;
-    }
+    
     void setMarks()
     {
         for(int i = 0; i <= 5; i++)
@@ -29,7 +26,7 @@ public:
 
 int main()
 {
-    Student a(1, 2, 3, 4, 5);
+    Student a;
     a.setMarks();
     cout << a.total();
 }
