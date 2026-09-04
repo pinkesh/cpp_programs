@@ -1,26 +1,25 @@
 #include <iostream>
 using namespace std;
 
-class Employee
-{
-private:
-    string name;
+class CountObj{
+    static int count;
+    
+    public:
+        CountObj(){
+            count++;
+        }
 
-public:
-    void setName(string n)
-    {
-        name = n;
-    }
-
-    void show()
-    {
-        cout << name;
-    }
+        static void displayCount(){
+            cout << count;
+        }
 };
 
-int main()
-{
-    Employee e;
-    e.setName("Amit");
-    e.show();
+int CountObj::count = 0;
+
+int main(){
+    CountObj a;
+    CountObj b;
+    CountObj c;
+    CountObj::displayCount();
+    return 0;
 }
