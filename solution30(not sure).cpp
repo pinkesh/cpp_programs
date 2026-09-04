@@ -2,26 +2,26 @@
 using namespace std;
 
 class Base {
+protected:
+    int x;
+
 public:
-    void show() {
-        cout << "Base ";
-    }
+    Base() : x(10) {}
 };
 
 class Derived : public Base {
 public:
-    void show() {
-        cout << "Derived ";
+    Derived() {
+        x += 5;
     }
 
-    void test() {
-        Base::show();
-        show();
+    void show() {
+        cout << x;
     }
 };
 
 int main() {
     Derived d;
-    d.test();
+    d.show();
     return 0;
 }

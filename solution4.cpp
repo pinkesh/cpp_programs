@@ -16,4 +16,4 @@ int main() {
     return 0;
 }
 
-// 
+// count is set to 5, then a and b each add one so count = 7

@@ -10,7 +10,7 @@ public:
 
 class B : public A {
 public:
-    void show() override {
+    void show() {
         cout << "B";
     }
 };
@@ -18,6 +18,5 @@ public:
 int main() {
     A* p = new B();
     p->show();
-    delete p;
     return 0;
 }

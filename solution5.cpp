@@ -10,8 +10,11 @@ public:
     }
 };
 
+// Needs to be defined outside the class globally
+int Test::x = 10;
+
 int main() {
-    Test::x = 10;
+    //Test::x = 1;
     Test::show();
     return 0;
 }
