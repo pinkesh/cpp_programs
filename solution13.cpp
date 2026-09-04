@@ -1,25 +1,24 @@
 #include <iostream>
 using namespace std;
 
-class Base {
-private:
-    int x;
-
+class Account {
+    static int total;
+    int balance;
 public:
-    void setX(int n) {
-        x = n;
+    Account(int b) {
+        balance = b;
+        total += balance;
+    }
+    static void showTotal() {
+        cout << total;
     }
 };
-
-class Derived : public Base {
-public:
-    void change() {
-        setX(50);
-    }
-};
+int Account::total = 0;
 
 int main() {
-    Derived d;
-    d.change();
-    return 0;
+    Account a(1000);
+    Account b(2500);
+    Account::showTotal();
 }
+
+//output 3500

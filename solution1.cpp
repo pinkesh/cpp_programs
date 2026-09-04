@@ -2,20 +2,14 @@
 using namespace std;
 
 class Student {
+    int marks;
 public:
-    string name;
-
-    void show() {
-        cout << name << endl;
-    }
+    Student(int m) { marks = m; }
+    void show() { cout << marks << endl; }
 };
-
 int main() {
-    Student s1;
-    s1.name = "Rahul";
-    s1.show();
-
-    return 0;
+    Student s(85);
+    s.show();
 }
 
-// Rahul
+//output: 85

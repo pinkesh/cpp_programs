@@ -2,18 +2,16 @@
 using namespace std;
 
 class Counter {
-public:
     static int count;
+public:
+    Counter() { count++; }
+    static void show() { cout << count; }
 };
-
-int Counter::count = 5;
+int Counter::count = 0;
 
 int main() {
     Counter a, b;
-    a.count++;
-    b.count++;
-    cout << Counter::count;
-    return 0;
+    Counter::show();
 }
 
-// count is set to 5, then a and b each add one so count = 7
+//output: 2

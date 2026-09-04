@@ -1,24 +1,18 @@
 #include <iostream>
 using namespace std;
 
-class Animal {
+class Number {
+    int x;
 public:
-    void sound() {
-        cout << "Animal";
-    }
+    Number(int a) { x = a; }
+    Number(Number &n) { x = n.x + 5; }
+    void show() { cout << x << endl; }
 };
-
-class Dog : public Animal {
-public:
-    void sound() {
-        cout << "Dog";
-    }
-};
-
 int main() {
-    Dog d;
-    d.sound();
-    return 0;
+    Number n1(10);
+    Number n2 = n1;
+    n1.show();
+    n2.show();
 }
 
-// Dog, sound is called
+//output 10\n15

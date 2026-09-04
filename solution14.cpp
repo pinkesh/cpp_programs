@@ -1,26 +1,20 @@
 #include <iostream>
 using namespace std;
 
-class A {
+class Employee {
+    static int count;
+    int id;
 public:
-    virtual void show() {
-        cout << "A";
+    Employee(int i) {
+        id = i;
+        count++;
+    }
+    static void showCount() {
+        cout << count;
     }
 };
-
-class B : public A {
-public:
-    void show() override {
-        cout << "B";
-    }
-};
-
+int Employee::count = 0;
 int main() {
-    A* p = new B();
-    p->show();
-    delete p;
-    return 0;
+    Employee e1(1);
+    Employee::showCount();
 }
-
-// output: B
-// because of the virtual keyword in base class

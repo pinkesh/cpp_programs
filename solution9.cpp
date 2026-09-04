@@ -1,23 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class Account {
-private:
-    double balance;
-
+class Employee {
+    int id;
 public:
-    void setBalance(double b) {
-        balance = b;
-    }
-
-    double getBalance() {
-        return balance;
-    }
+    Employee(int i) : id(i) {}
+    Employee(Employee &e) { id = e.id; }
+    void show() { cout << id; }
 };
-
 int main() {
-    Account a;
-    a.setBalance(5000);
-    cout << a.getBalance();
-    return 0;
+    Employee e1(101);
+    Employee e2 = e1;
 }

@@ -1,22 +1,25 @@
 #include <iostream>
 using namespace std;
 
-class A {
-public:
-    virtual void show() {
-        cout << "A";
-    }
+class CountObj{
+    static int count;
+    
+    public:
+        CountObj(){
+            count++;
+        }
+
+        static void displayCount(){
+            cout << count;
+        }
 };
 
-class B : public A {
-public:
-    void show() {
-        cout << "B";
-    }
-};
+int CountObj::count = 0;
 
-int main() {
-    A* p = new B();
-    p->show();
+int main(){
+    CountObj a;
+    CountObj b;
+    CountObj c;
+    CountObj::displayCount();
     return 0;
 }

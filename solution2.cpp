@@ -1,20 +1,12 @@
 #include <iostream>
 using namespace std;
 
-class Employee {
+class Book {
+    int price;
 public:
-    int salary;
-
-public:
-    void setSalary(int s) {
-        salary = s;
-    }
+    Book(int p) { price = p; }
 };
-
 int main() {
-    Employee e;
-    e.salary = 50000;
+    Book b(30);
     return 0;
 }
-
-//change salary to public

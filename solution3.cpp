@@ -1,17 +1,14 @@
 #include <iostream>
 using namespace std;
 
-class Car {
+class Test {
 public:
-    void start() {
-        cout << "Car started";
-    }
+    Test() { cout << "Constructor "; }
+    ~Test() { cout << "Destructor "; }
 };
-
 int main() {
-    Car a;
-    a.start();
-    return 0;
+    Test t;
+    cout << "Main ";
 }
 
-// not created and called correctly
+//output: Constructor Main Destructor

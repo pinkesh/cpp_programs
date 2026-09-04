@@ -1,30 +1,20 @@
 #include <iostream>
 using namespace std;
 
-class Base {
+class Box {
+    int length;
 public:
-    void show() {
-        cout << "Base ";
-    }
+    Box(int l) : length(l) {}
+    Box(const Box &b) : length(b.length * 2) {}
+    void show() { cout << length << " "; }
 };
-
-class Derived : public Base {
-public:
-    void show() {
-        cout << "Derived ";
-    }
-
-    void test() {
-        Base::show();
-        show();
-    }
-};
-
 int main() {
-    Derived d;
-    d.test();
-    return 0;
+    Box b1(5);
+    Box b2(b1);
+    Box b3 = b2;
+    b1.show();
+    b2.show();
+    b3.show();
 }
 
-// output: Base Derived
-//  Base::show() runs the show() function from the parent class, which prints Base, not Derived
+//5 10 20
