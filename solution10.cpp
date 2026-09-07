@@ -1,36 +1,20 @@
 #include <iostream>
 using namespace std;
 
-class Counter
-{
+class Box {
+    int length;
 public:
-    int count;
-
-public:
-    Counter()
-    {
-        count = 0;
-    }
-
-    void add(int n)
-    {
-        count = count + n;
-    }
-
-    void show()
-    {
-        cout << count << " ";
-    }
+    Box(int l) : length(l) {}
+    Box(const Box &b) : length(b.length * 2) {}
+    void show() { cout << length << " "; }
 };
-
-int main()
-{
-    Counter a, b;
-    a.add(5);
-    b.add(10);
-    a.add(3);
-    b.add(a.count);
-
-    a.show();
-    b.show();
+int main() {
+    Box b1(5);
+    Box b2(b1);
+    Box b3 = b2;
+    b1.show();
+    b2.show();
+    b3.show();
 }
+
+//5 10 20

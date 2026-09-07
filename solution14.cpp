@@ -1,33 +1,20 @@
 #include <iostream>
 using namespace std;
 
-class Marks
-{
-    int m[4];
-
+class Employee {
+    static int count;
+    int id;
 public:
-    void set()
-    {
-        m[0] = 10;
-        m[1] = 20;
-        m[2] = 30;
-        m[3] = 40;
+    Employee(int i) {
+        id = i;
+        count++;
     }
-
-    int sum()
-    {
-        int s = 0;
-        for(int i = 0; i < 4; i++)
-            s += m[i];
-        return s;
+    static void showCount() {
+        cout << count;
     }
 };
-
-int main()
-{
-    Marks a, b;
-    a.set();
-    b.set();
-    cout << a.sum() << endl;
-    cout << b.sum() << endl;
+int Employee::count = 0;
+int main() {
+    Employee e1(1);
+    Employee::showCount();
 }

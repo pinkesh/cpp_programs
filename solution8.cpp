@@ -1,38 +1,19 @@
 #include <iostream>
 using namespace std;
 
-class Account
-{
+class A {
 public:
-    int balance;
-
-public:
-    Account(int b)
-    {
-        balance = b;
-    }
-
-    void deposit(int amount)
-    {
-        balance = balance + amount;
-    }
-
-    void show()
-    {
-        cout << balance << endl;
-    }
+    A() { cout << "A+"; }
+    ~A() { cout << "A-"; }
 };
-
-int main()
-{
-    Account a(1000);
-    Account b(500);
-
-    a.deposit(200);
-    b.deposit(a.balance);
-
-    a.show();
-    b.show();
+void test() {
+    A x;
+    A y;
+}
+int main() {
+    test();
+    cout << "M";
 }
 
-// doesn't compile, change the constructor to public instead of private
+//A+A+A-A-M
+// x then y is constructed
