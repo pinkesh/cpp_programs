@@ -4,10 +4,11 @@ using namespace std;
 class Animal
 {
 public:
-    virtual void sound()
-    {
-        cout << "Animal sound" << endl;
-    }
+    virtual void sound() = 0;
+    // {
+    //     cout << "Animal sound" << endl;
+    // }
+    
 };
 
 class Dog : public Animal
@@ -35,13 +36,13 @@ void makeSound(Animal& animal)
 
 int main()
 {
-    Animal a;
+    //Animal a;
     Dog d;
     Cat c;
     
-    makeSound(a);
-    // makeSound(d);
-    // makeSound(c);
+     //makeSound(a);
+     makeSound(d);
+     makeSound(c);
     
 
     return 0;

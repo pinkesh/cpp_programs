@@ -3,14 +3,16 @@ using namespace std;
 
 class Person
 {
+    
 public:
+    int id=99;
     void person()
     {
         cout << "Person" << endl;
     }
 };
 
-class Student : public Person
+class Student :  virtual public Person
 {
 public:
     void student()
@@ -19,7 +21,7 @@ public:
     }
 };
 
-class Employee : public Person
+class Employee :  virtual public Person
 {
 public:
     void employee()
@@ -40,8 +42,11 @@ public:
 int main()
 {
     Intern i;
-
+    
     i.intern();
+    i.employee();
+    i.student();
+    cout << "ID: " << i.id << endl;
 
     return 0;
 }
