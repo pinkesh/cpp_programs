@@ -1,42 +1,22 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Employee
-{
-private:
-    int salary;
-
-protected:
-    string department;
-
+class Employee {
+    int id;
+    static int count;
 public:
-    Employee(int s, string d)
-    {
-        salary = s;
-        department = d;
+    Employee(int i) : id(i) {
+        count++;
     }
-
-    int* getSalary(){
-        return &salary;
+    static void show(Employee e) {
+        cout << e.id << " " << count;
     }
 };
+int Employee::count = 0;
 
-class Manager : public Employee
-{
-public:
-    Manager(int s, string d) : Employee(s, d)
-    {
-    }
+int main(){
+    Employee x(101);
+    Employee y(102);
 
-    void show()
-    {
-        cout << *getSalary() << " " << department;
-    }
-};
-
-int main()
-{
-    Manager m(50000, "IT");
-    m.show();
+    Employee::show(x);
 }

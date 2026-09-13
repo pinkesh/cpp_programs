@@ -1,29 +1,19 @@
 #include <iostream>
 using namespace std;
 
-class Marks
-{
-private:
-    int m[5];
-
+class Number {
+    int x;
 public:
-    Marks(int value)
-    {
-        for(int i = 0; i < 5; i++)
-            m[i] = value;
+    Number(int a) : x(a) {}
+    Number add(Number n) {
+        return Number(x + n.x);
     }
-
-    void show()
-    {
-        for(int i = 0; i < 5; i++)
-            cout << m[i] << " ";
-    }
+    void show() { cout << x; }
 };
-
-int main()
-{
-    Marks a(50);
-    a.show();
+int main() {
+    Number a(5), b(8);
+    Number c = a.add(b);
+    c.show();
 }
 
-// output: 50 50 50 50 50
+//13

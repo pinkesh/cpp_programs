@@ -1,45 +1,30 @@
 #include <iostream>
 using namespace std;
 
-class Library
-{
-private:
-    string book[4];
-    int price[4];
-    int count;
-
+class Product{
+    int price;
 public:
-    Library()
-    {
-        count = 0;
+    Product(int p){
+        price = p;
     }
-
-    void add(string b, int p)
-    {
-        if(count >= 4){
-            cout << "Size too big" << endl;
-        }
-        else{
-            book[count] = b;
-            price[count] = p;
-            count++;
-        }
-    }
-
-    void show()
-    {
-        for(int i = 0; i < count; i++)
-            cout << book[i] << " " << price[i] << endl;
-    }
+    friend int comparePrice(Product[]);
 };
 
-int main()
-{
-    Library l;
-    l.add("C++", 500);
-    l.add("OOP", 600);
-    l.add("Hi", 300);
-    l.add("Bye", 100);
-    l.add("Error?", 3);
-    l.show();
+int comparePrice(Product p[]){
+    int highestPrice = 0;
+
+    for(int i = 0; i < 4; i++){
+        if(p[i].price > highestPrice){
+            highestPrice = p[i].price; 
+        }
+    }
+    
+    return highestPrice;
+}
+
+int main(){
+    Product p1(10), p2(20), p3(30), p4(40);
+    Product products[4] = {p1, p2, p3, p4};
+
+    cout << comparePrice(products);
 }

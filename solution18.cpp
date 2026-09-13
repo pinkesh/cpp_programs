@@ -1,19 +1,21 @@
 #include <iostream>
 using namespace std;
 
-class Number
-{
+class Student {
+    int marks;
 public:
-    void change(int x)
-    {
-        x = x * 2;
-    }
+    Student(int m) : marks(m) {}
+    friend void compare(Student, Student);
 };
-
-int main()
-{
-    Number n;
-    int a = 15;
-    n.change(a);
-    cout << a;
+void compare(Student a, Student b) {
+    if (a.marks > b.marks)
+        cout << a.marks;
+    else
+        cout << b.marks;
 }
+int main() {
+    Student s1(72), s2(91);
+    compare(s1, s2);
+}
+
+//91

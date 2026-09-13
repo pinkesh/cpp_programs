@@ -1,19 +1,13 @@
 #include <iostream>
 using namespace std;
 
-class Number
-{
+class Box {
+    int length;
+    int width;
 public:
-    void change(int *x)
-    {
-        *x = *x * 2;
-    }
+    Box(int l, int w) : length(l), width(w) {}
+    friend int area(Box b);
 };
-
-int main()
-{
-    Number n;
-    int a = 15;
-    n.change(&a);
-    cout << a;
+int area(Box b) {
+    return b.length * b.width;
 }

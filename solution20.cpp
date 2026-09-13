@@ -1,32 +1,27 @@
 #include <iostream>
 using namespace std;
 
-class Test
-{
-public:
-    void value(int x)
-    {
-        x = 100;
-    }
+class Student{
+    int mark;
 
-    void pointer(int *x)
-    {
-        *x = 200;
+public:
+    Student(int m){
+        mark = m;
     }
+    friend int compareMark(Student, Student);
 };
 
-int main()
-{
-    Test t;
-    int a = 10;
-
-    t.value(a);
-    cout << a << " ";
-
-    t.pointer(&a);
-    cout << a;
+int compareMark(Student s1, Student s2){
+    if(s1.mark > s2.mark){
+        return s1.mark;
+    }
+    else{
+        return s2.mark;
+    }
 }
 
-// The t.value(a) tries to turn a = 100 but since it is done locally
-//, it doesn't actually change the value. However the t.pointer does change
-// a because it directly accesses the address
+int main(){
+    Student s1(90), s2(39);
+    cout << compareMark(s1, s2) << endl;
+    return 0;
+}

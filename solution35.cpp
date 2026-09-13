@@ -1,80 +1,57 @@
 #include <iostream>
 using namespace std;
 
-class Student
-{
-private:
+class Student{
+    int mark;
+    static int count;
     string name;
-    int marks[3];
-    int total;
-
-protected:
-    int rollNo;
 
 public:
-    string getName(){
-        return name;
-    }
-
-    Student(string n, int r)
-    {
+    Student(int m, string n){
+        mark = m;
         name = n;
-        rollNo = r;
-        total = 0;
+        count++;
+        cout << "Student created" << endl;
+    }
+    Student(const Student &other){
+        mark = other.mark;
+        name = "John Doe";
+        count++;
+        cout << "Copy created" << endl;
+    }
+    ~Student(){
+        cout << "Destroyed" << endl;
     }
 
-    void input()
-    {
-        for(int i = 0; i <= 3; i++)
-        {
-            cin >> marks[i];
-            total += marks[i];
-        }
+    static void countStudents(){
+        cout << count << " students in the school" << endl;
     }
 
-    void change(int x)
-    {
-        total = x;
-    }
-
-    void changeByPointer(int *x)
-    {
-        *x = *x + 10;
-        total = *x;
-    }
-
-    void show()
-    {
-        cout << name << " " << rollNo << " " << total << endl;
-    }
+    friend void compareMarks(Student &s1, Student &s2);
 };
 
-class Result : public Student
-{
-public:
-    Result(string n, int r) : Student(n, r)
-    {
+void compareMarks(Student &s1, Student &s2){
+    if(s1.mark > s2.mark){
+        cout << s1.name << " has higher mark";
     }
-
-    void update()
-    {
-        cout << getName() << endl;
-        cout << rollNo << endl;
+    else if (s1.mark == s2.mark){
+        cout << s1.name << " and " << s2.name << " has the same mark";
     }
-};
-
-int main()
-{
-    Student s("Amit", 10);
-    s.input();
-
-    int x = 50;
-    s.change(x);
-    s.changeByPointer(&x);
-
-    s.show();
+    else{
+        cout << s2.name << " has higher mark";
+    }
+    cout << endl;
 }
 
-// 1: made a getter for name
-// 2: changeByPointer gives address of x
-// 3: made total = *x
+int Student::count = 0;
+
+int main(){
+    Student::countStudents();
+    Student s1(92, "Max");
+    Student s2(93, "Bob");
+    Student::countStudents();
+    compareMarks(s1, s2);
+    Student s3 = s2;
+    compareMarks(s3, s2);
+    return 0;
+}

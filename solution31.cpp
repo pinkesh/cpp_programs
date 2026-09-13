@@ -1,31 +1,21 @@
 #include <iostream>
 using namespace std;
 
-class Product
-{
-    int code;
-    float price;
-
+class Test {
+    int x;
 public:
-    Product(int c, float p)
-    {
-        code = c;
-        price = p;
-    }
-
-    void show()
-    {
-        cout << code << " " << price << endl;
-    }
+    Test(int a) : x(a) {}
+    Test(const Test &t) : x(t.x + 1) {}
+    ~Test() { cout << x << " "; }
 };
-
-int main()
-{
-    Product p[2] = {
-        Product(101, 20.5),
-        Product(102, 30.5)
-    };
-
-    for(int i = 0; i < 2; i++)
-        p[i].show();
+int main() {
+    Test a(1);
+    {
+        Test b = a;
+        Test c = b;
+    }
+    cout << "End ";
 }
+
+// a = 1, b = 2, c = 3
+// output: 3 2 End 1

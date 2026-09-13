@@ -1,31 +1,27 @@
 #include <iostream>
 using namespace std;
 
-class Box
-{
-    int length;
-
+class Time{
+    int hour;
 public:
-    Box()
-    {
-        length = 10;
+    Time(int h){
+        hour = h;
     }
 
-    Box(int l)
-    {
-        length = l;
+    void add(Time other){
+        hour += other.hour;
+        //cout <<hour;
     }
 
-    void show()
-    {
-        cout << length << " ";
+    void show(){
+        cout << hour;
     }
 };
 
-int main()
-{
-    Box a, b(25), c(3);
-    a.show();
-    b.show();
-    c.show();
+int main(){
+    Time t1(1), t2(3);
+    t1.add(t2);
+    t1.show();
+    //t2.show();
+    return 0;
 }

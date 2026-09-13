@@ -1,36 +1,23 @@
 #include <iostream>
 using namespace std;
 
-class Data
-{
-    int a[5];
+class Math{
+    int number;
 public:
-    Data()
-    {
-        for(int i = 0; i < 5; i++)
-            a[i] = i + 1;
-    }
+    Math(){
 
-    void change(int *p)
-    {
-        for(int i = 0; i < 5; i++)
-            p[i] = p[i] * 2;
     }
-
-    void show()
-    {
-        for(int i = 0; i < 5; i++)
-            cout << a[i] << " ";
+    Math(int n){
+        number = n;
     }
-
-    int* getDataPointer(){
-        return a;
+    int add(Math num1, Math num2){
+        number = num1.number + num2.number;
+        cout << number;
     }
 };
 
-int main()
-{
-    Data d;
-    d.change(d.getDataPointer());
-    d.show();
+int main(){
+    Math n1(10), n2(20);
+    Math n3;
+    n3.add(n1, n2);
 }

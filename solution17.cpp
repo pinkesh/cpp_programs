@@ -1,26 +1,15 @@
 #include <iostream>
 using namespace std;
 
-class Customer
-{
-    string name;
-    int id;
-
+class Math {
 public:
-    Customer(string n, int i)
-    {
-        name = n;
-        id = i;
-    }
-
-    void show()
-    {
-        cout << name << " " << id;
+    static int square(int x) {
+        int y = 10;
+        return x * y;
     }
 };
 
-int main()
-{
-    Customer c("Raj Patel", 1234);
-    c.show();
+
+int main() {
+    cout << Math::square(5);
 }

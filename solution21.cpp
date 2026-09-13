@@ -1,41 +1,20 @@
 #include <iostream>
 using namespace std;
 
-class Base
-{
-protected:
-    int *a;
-
-protected:
-    int *b;
-
+class Number {
+    int x;
 public:
-    int *c;
-
-public:
-    void set()
-    {
-        *a = 10;
-        *b = 20;
-        *c = 30;
-        //cout << "Variables set";
-    }
+    Number(int a) : x(a) {}
+    friend Number add(Number, Number);
+    void show() { cout << x; }
 };
-
-class Derived : public Base
-{
-public:
-    void show()
-    {
-        cout << *a << " ";
-        cout << *b << " ";
-        cout << *c;
-    }
-};
-
-int main(){
-    //cout << "hello";
-    Derived b;
-    b.set();
-    b.show();
+Number add(Number a, Number b) {
+    return Number(a.x + b.x);
 }
+int main() {
+    Number n1(10), n2(20);
+    Number n3 = add(n1, n2);
+    n3.show();
+}
+
+//30
